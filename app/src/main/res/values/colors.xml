@@ -7,12 +7,13 @@
     <color name="colorPrimary">#89103D</color>
     <color name="colorPrimaryDark">#560018</color>
     <color name="colorAccent">#070707</color>
-    <color name="colorBackgroundWhiteSmoke">#F2F2F2</color>
+    <color name="colorBackgroundWhiteSmoke">#e6e6e6</color>
+<!--    <color name="colorBackgroundWhiteSmoke">#F2F2F2</color>-->
 <!--    <color name="colorBackgroundWhiteSmoke">#F5F5F5</color>-->
 
 
 
-
+    <color name="colorCustomBackground">#23303D</color>-->
 
 
 </resources>
