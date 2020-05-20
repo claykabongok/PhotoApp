@@ -144,4 +144,19 @@ public class hits {
     public String getUserImageURL() {
         return userImageURL;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof hits)) return false;
+
+        hits hits = (hits) o;
+
+        return getId() == hits.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (getId() ^ (getId() >>> 32));
+    }
 }

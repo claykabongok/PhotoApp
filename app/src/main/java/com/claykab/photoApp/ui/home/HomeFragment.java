@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.claykab.photoApp.adapters.PictureAdapter;
 import com.claykab.photoApp.databinding.FragmentHomeBinding;
 import com.claykab.photoApp.model.PictureResponse;
+import com.claykab.photoApp.utils.API_KEY;
 
 public class HomeFragment extends Fragment {
 
@@ -22,13 +23,15 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private PictureAdapter pictureAdapter;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         binding=FragmentHomeBinding.inflate(inflater, container, false);
 
-        GridLayoutManager gridLayoutManager= new GridLayoutManager(getContext(),2);
+        GridLayoutManager gridLayoutManager= new GridLayoutManager(getContext(),3);
+
 
 
         binding.recyclerviewPictures.setHasFixedSize(true);
@@ -43,35 +46,28 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadPictures() {
-        homeViewModel.getPictures().observe(getViewLifecycleOwner(), new Observer<PictureResponse>() {
-            @Override
-            public void onChanged(PictureResponse pictureResponse) {
-                try {
-                    Toast.makeText(getContext(), "Number of hits: "+pictureResponse.getTotalHits(),Toast.LENGTH_LONG).show();
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(getContext(), "Error: "+e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+        String key= API_KEY.API_KEY;
+        String category="places";
+        String image_type="photo";
+        int per_page=75;
+
+        homeViewModel.getPictures(key,category,image_type,per_page).observe(getViewLifecycleOwner(), pictureResponse -> {
+
+            try {
+                if(!pictureResponse.getHitsList().isEmpty()){
+
+                        binding.progressBarPictures.setVisibility(View.GONE);
+                        pictureAdapter= new PictureAdapter(getContext(), pictureResponse.getHitsList());
+                        binding.recyclerviewPictures.setAdapter(pictureAdapter);
+          }else {
+                    Toast.makeText(getContext(),"Error: ",Toast.LENGTH_LONG).show();
                 }
-
-                try {
-                    if(!pictureResponse.getHitsList().isEmpty()){
-
-                            binding.progressBarPictures.setVisibility(View.GONE);
-                            pictureAdapter= new PictureAdapter(getContext(), pictureResponse.getHitsList());
-                            binding.recyclerviewPictures.setAdapter(pictureAdapter);
-
-
-
-                    }else {
-                        Toast.makeText(getContext(),"Error: ",Toast.LENGTH_LONG).show();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    //Toast.makeText(getContext(), "Error: "+e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
-                }
+            } catch (Exception e) {
+                e.printStackTrace();
 
             }
+
         });
 
 

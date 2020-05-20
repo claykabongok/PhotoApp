@@ -1,19 +1,21 @@
 package com.claykab.photoApp.ui.home;
 
 import android.app.Application;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
+import androidx.paging.LivePagedListBuilder;
+import androidx.paging.PageKeyedDataSource;
+import androidx.paging.PagedList;
 
 import com.claykab.photoApp.model.PictureResponse;
+import com.claykab.photoApp.model.hits;
 
 public class HomeViewModel extends AndroidViewModel {
+
     private MediatorLiveData<PictureResponse> pictureResponseMediatorLiveData;
     private HomeRepository homeRepository;
 
@@ -21,19 +23,15 @@ public class HomeViewModel extends AndroidViewModel {
         super(application);
         pictureResponseMediatorLiveData=new MediatorLiveData<>();
         homeRepository= new HomeRepository();
+
     }
 
 
 
-    public LiveData<PictureResponse> getPictures(){
-       pictureResponseMediatorLiveData.addSource(homeRepository.getPictures(), new Observer<PictureResponse>() {
-           @Override
-           public void onChanged(PictureResponse pictureResponse) {
-               pictureResponseMediatorLiveData.setValue(pictureResponse);
+    public LiveData<PictureResponse> getPictures(String key,String category,String image_type, int per_page){
 
 
-           }
-       });
+        pictureResponseMediatorLiveData.addSource(homeRepository.getPictures(key,category,image_type,per_page), pictureResponse -> pictureResponseMediatorLiveData.setValue(pictureResponse));
         return pictureResponseMediatorLiveData;
     }
 
