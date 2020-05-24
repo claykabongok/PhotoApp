@@ -51,7 +51,7 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.PictureV
          */
 
         Glide.with(getContext()).load(hits.getWebformatURL())
-                .placeholder(R.drawable.ic_image_black_24dp).apply(new RequestOptions()
+                .placeholder(R.drawable.ic_image_gray_48dp).apply(new RequestOptions()
                 .override(800, 600)).into(pictureViewHolder.iv_picture_grid);
 
 

@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/imageDetailsFragment"
         android:name="com.claykab.photoApp.ui.imageDetails.ImageDetailsFragment"
-        android:label="fragment_image_details"
+        android:label="Image details"
         tools:layout="@layout/fragment_image_details" >
         <action
             android:id="@+id/action_imageDetailsFragment_to_navigation_home"

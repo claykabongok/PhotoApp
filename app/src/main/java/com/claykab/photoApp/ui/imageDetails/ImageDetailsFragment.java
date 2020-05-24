@@ -58,6 +58,18 @@ public class ImageDetailsFragment extends Fragment {
                  if(!pictureDetailsResponse.getHitsList().isEmpty()){
                      Glide.with(getContext()).load(pictureDetailsResponse.getHitsList().get(0).getLargeImageURL())
                             .placeholder(R.drawable.ic_image_black_24dp).into(binding.ivSelectedPicture);
+                     binding.tvCommentValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getComments()));
+                     binding.tvFavoriteValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getFavorites()));
+                     binding.tvLikesValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getLikes()));
+                     binding.tvViewsValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getViews()));
+                     binding.tvDownloadValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getDownloads()));
+                     binding.tvImageTagsValue.setText(pictureDetailsResponse.getHitsList().get(0).getTags());
+
+                     Glide.with(getContext()).load(pictureDetailsResponse.getHitsList().get(0).getUserImageURL())
+                             .placeholder(R.drawable.ic_image_black_24dp).into(binding.ivImageAuthor);
+                     binding.tvImageAuthorName.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getUser()));
+
+
 
                 }
             } catch (Exception e) {
