@@ -47,7 +47,7 @@ public class ImageDetailsFragment extends Fragment {
 //
         try {
             pictureId=getArguments().getLong("pictureId");
-            Toast.makeText(getContext(), "Picture id: "+pictureId,Toast.LENGTH_LONG).show();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,8 +66,8 @@ public class ImageDetailsFragment extends Fragment {
                      binding.tvImageTagsValue.setText(pictureDetailsResponse.getHitsList().get(0).getTags());
 
                      Glide.with(getContext()).load(pictureDetailsResponse.getHitsList().get(0).getUserImageURL())
-                             .placeholder(R.drawable.ic_image_black_24dp).into(binding.ivImageAuthor);
-                     binding.tvImageAuthorName.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getUser()));
+                             .placeholder(R.drawable.ic_person_theme_color_24dp).into(binding.ivImageAuthor);
+                     binding.tvImageAuthorName.setText("Author: "+String.valueOf(pictureDetailsResponse.getHitsList().get(0).getUser()));
 
 
 
