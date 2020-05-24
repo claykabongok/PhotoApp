@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/iv_picture_grid"
+        android:layout_width="0dp"
+
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+
+        android:background="@color/colorCustomGray"
+
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/iv_picture_grid_second"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_picture_grid_second"
+        android:layout_width="0dp"
+
+        android:layout_height="150dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:background="@color/colorCustomGray"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/iv_picture_grid_third"
+        app:layout_constraintStart_toEndOf="@+id/iv_picture_grid"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_picture_grid_third"
+        android:layout_width="0dp"
+
+        android:layout_height="150dp"
+
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:background="@color/colorCustomGray"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/iv_picture_grid_second"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    <ImageView-->
+<!--        android:id="@+id/iv_picture_grid_second"-->
+<!--       -->
+<!--        android:adjustViewBounds="true"-->
+<!--        android:background="@color/colorCustomGray"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/iv_picture_grid"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <ImageView-->
+<!--        android:id="@+id/iv_picture_grid_third"-->
+<!--        android:layout_width="178dp"-->
+<!--        android:layout_height="216dp"-->
+<!--        android:layout_margin="2dp"-->
+<!--        android:adjustViewBounds="true"-->
+<!--        android:background="@color/colorCustomGray"-->
+<!--        android:scaleType="centerCrop" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>

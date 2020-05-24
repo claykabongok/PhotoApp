@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -57,8 +58,10 @@ public class HomeFragment extends Fragment {
             try {
                 if(!pictureResponse.getHitsList().isEmpty()){
 
-                        binding.progressBarPictures.setVisibility(View.GONE);
+                       binding.shimmerFrameLayout.stopShimmer();
+                        binding.shimmerFrameLayout.setVisibility(View.GONE);
                         pictureAdapter= new PictureAdapter(getContext(), pictureResponse.getHitsList());
+                        binding.recyclerviewPictures.setVisibility(View.VISIBLE);
                         binding.recyclerviewPictures.setAdapter(pictureAdapter);
           }else {
                     Toast.makeText(getContext(),"Error: ",Toast.LENGTH_LONG).show();
@@ -74,6 +77,22 @@ public class HomeFragment extends Fragment {
 
     }
 
+    /**
+     * Called immediately after {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}
+     * has returned, but before any saved state has been restored in to the view.
+     * This gives subclasses a chance to initialize themselves once
+     * they know their view hierarchy has been completely created.  The fragment's
+     * view hierarchy is not however attached to its parent at this point.
+     *
+     * @param view               The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     */
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.shimmerFrameLayout.startShimmer();
+
+    }
 
     /**
      * Called when the view previously created by {@link #onCreateView} has
@@ -88,5 +107,6 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding=null;
+
     }
 }

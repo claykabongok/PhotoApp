@@ -13,7 +13,10 @@
 
 
 
-    <color name="colorCustomBackground">#23303D</color>-->
+    <color name="colorCustomBackground">#23303D</color>
+
+    <color name="colorCustomGray">#dddddd</color>
+    <color name="colorWhite">#fff</color>
 
 
 </resources>

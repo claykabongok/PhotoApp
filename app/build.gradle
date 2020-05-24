@@ -54,6 +54,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.8.2'
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    // Gradle dependency on Shimmer for Android
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
@@ -65,6 +67,7 @@ dependencies {
 
 
     implementation "androidx.paging:paging-runtime:$paging_version"
+
 
 
 }
