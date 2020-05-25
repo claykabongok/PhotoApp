@@ -167,7 +167,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="Tags: "
             android:textAppearance="@android:style/TextAppearance.Material"
@@ -185,30 +185,19 @@
 <!--            app:civ_border_color="#FF000000"/>-->
 
 
-        <!--        <ImageView-->
-<!--            android:id="@+id/iv_image_author"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:layout_marginEnd="8dp"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/tv_image_author_name"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/tv_image_tags_value"-->
-<!--            tools:src="@tools:sample/avatars" />-->
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_image_author"
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             app:civ_border_color="#DDDDDD"
             app:civ_border_width="2dp"
             app:layout_constraintEnd_toStartOf="@+id/tv_image_author_name"
+            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_image_tags_value"
+            app:layout_constraintTop_toBottomOf="@+id/tv_download_picture"
             tools:src="@tools:sample/avatars" />
 
         <TextView
@@ -216,7 +205,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
 
             android:layout_marginEnd="8dp"
             android:textAppearance="@android:style/TextAppearance.Material.Body2"
@@ -231,13 +220,39 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             android:textAppearance="@android:style/TextAppearance.Holo.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_image_author"
-            app:layout_constraintTop_toBottomOf="@+id/tv_image_tags_value"
+            app:layout_constraintTop_toBottomOf="@+id/tv_download_picture"
             tools:text="Author" />
+
+        <TextView
+            android:id="@+id/tv_download_picture"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Download picture"
+            app:layout_constraintEnd_toStartOf="@+id/ib_download_picture"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_image_tags" />
+
+        <ImageButton
+            android:id="@+id/ib_download_picture"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_cloud_download_theme_color_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.453"
+            app:layout_constraintStart_toEndOf="@+id/tv_download_picture"
+            app:layout_constraintTop_toBottomOf="@+id/tv_image_tags_value" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
