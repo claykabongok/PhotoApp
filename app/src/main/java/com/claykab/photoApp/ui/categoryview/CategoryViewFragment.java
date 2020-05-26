@@ -76,7 +76,7 @@ public class CategoryViewFragment extends Fragment {
 
                     binding.shimmerFrameLayout.stopShimmer();
                     binding.shimmerFrameLayout.setVisibility(View.GONE);
-                    pictureAdapter= new PictureAdapter(getContext(), pictureResponse.getHitsList());
+                    pictureAdapter= new PictureAdapter(getContext(), pictureResponse.getHitsList(),"categoryViewAction");
                     binding.recyclerviewPictures.setVisibility(View.VISIBLE);
                     binding.recyclerviewPictures.setAdapter(pictureAdapter);
                 }else {

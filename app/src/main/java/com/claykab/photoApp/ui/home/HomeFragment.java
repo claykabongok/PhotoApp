@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
 
                        binding.shimmerFrameLayout.stopShimmer();
                         binding.shimmerFrameLayout.setVisibility(View.GONE);
-                        pictureAdapter= new PictureAdapter(getContext(), pictureResponse.getHitsList());
+                        pictureAdapter= new PictureAdapter(getContext(), pictureResponse.getHitsList(),"homeAction");
                         binding.recyclerviewPictures.setVisibility(View.VISIBLE);
                         binding.recyclerviewPictures.setAdapter(pictureAdapter);
           }else {

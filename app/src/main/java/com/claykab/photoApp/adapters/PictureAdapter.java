@@ -23,10 +23,12 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.PictureV
 
    private Context context;
    private List<hits> hitsList;
+   private String navigationAction;
 
-    public PictureAdapter(Context context, List<hits> hitsList) {
+    public PictureAdapter(Context context, List<hits> hitsList,String navigationAction) {
         this.context = context;
         this.hitsList = hitsList;
+        this.navigationAction=navigationAction;
     }
 
     private Context getContext(){
@@ -78,13 +80,18 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.PictureV
 
         @Override
         public void onClick(View v) {
-
-            hits hits=hitsList.get(getAdapterPosition());
-            Bundle bundle= new Bundle();
-            long pictureId=hits.getId();
-            bundle.putLong("pictureId",pictureId);
-            //navigate to view picture details
-            Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_imageDetailsFragment, bundle);
+            //use for android navigation component lib
+            hits hits = hitsList.get(getAdapterPosition());
+            long pictureId = hits.getId();
+            Bundle bundle = new Bundle();
+            bundle.putLong("pictureId", pictureId);
+            if(navigationAction.equals("homeAction")) {
+                //navigate to view picture details
+                Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_imageDetailsFragment, bundle);
+            }else if(navigationAction.equals("categoryViewAction")) {
+                //navigate to view picture details
+               Navigation.findNavController(v).navigate(R.id.action_categoryViewFragment_to_imageDetailsFragment, bundle);
+            }
 
 
         }
