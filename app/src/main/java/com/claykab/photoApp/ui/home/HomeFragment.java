@@ -48,12 +48,9 @@ public class HomeFragment extends Fragment {
 
     private void loadPictures() {
 
-        String key= API_KEY.API_KEY;
-        String category="places";
-        String image_type="photo";
-        int per_page=75;
 
-        homeViewModel.getPictures(key,category,image_type,per_page).observe(getViewLifecycleOwner(), pictureResponse -> {
+
+        homeViewModel.getPictures().observe(getViewLifecycleOwner(), pictureResponse -> {
 
             try {
                 if(!pictureResponse.getHitsList().isEmpty()){

@@ -12,8 +12,8 @@
         android:title="@string/title_category" />
 
     <item
-        android:id="@+id/navigation_favorite"
-        android:icon="@drawable/ic_favorite_black_24dp"
-        android:title="@string/title_favorite" />
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:title="@string/title_search" />
 
 </menu>

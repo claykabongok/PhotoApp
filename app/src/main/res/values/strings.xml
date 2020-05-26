@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">PhotoApp</string>
     <string name="title_home">Home</string>
-    <string name="title_category">Category</string>
-    <string name="title_favorite">Favorite</string>
+    <string name="title_category">Categories</string>
+    <string name="title_search">Search</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

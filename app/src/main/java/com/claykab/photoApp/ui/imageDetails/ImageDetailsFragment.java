@@ -52,29 +52,24 @@ public class ImageDetailsFragment extends Fragment {
 
         binding.ibDownloadPicture.setOnClickListener(v -> {
            //Toast.makeText(getContext(), "Download button clicked!",Toast.LENGTH_LONG).show();
-            if (ContextCompat.checkSelfPermission(
-                    getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
-                    PackageManager.PERMISSION_GRANTED) {
-                // You can use the API that requires the permission.
-                Toast.makeText(getContext(), "Permission granted!", Toast.LENGTH_LONG).show();
-                downloadPictureSelected(pictureUrl);
+            try {
+                if (ContextCompat.checkSelfPermission(
+                        getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                        PackageManager.PERMISSION_GRANTED) {
+                    // You can use the API that requires the permission.
+                      downloadPictureSelected(pictureUrl);
+                }
+               else {
+                    // You can directly ask for the permission.
 
-//            } else if (shouldShowRequestPermissionRationale(...)) {
-//                // In an educational UI, explain to the user why your app requires this
-//                // permission for a specific feature to behave as expected. In this UI,
-//                // include a "cancel" or "no thanks" button that allows the user to
-//                // continue using your app without granting the permission.
-//
-//            }
-            }
-           else {
-                // You can directly ask for the permission.
+                    String[] permissions={Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-                String[] permissions={Manifest.permission.WRITE_EXTERNAL_STORAGE};
-
-                requestPermissions(permissions,PERMISION_REQUEST_CODE);
+                    requestPermissions(permissions,PERMISION_REQUEST_CODE);
 
 
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
         return binding.getRoot();
@@ -87,6 +82,7 @@ public class ImageDetailsFragment extends Fragment {
         //verify if the url is set
 
         if(pictureUrl != null){
+            Toast.makeText(getContext(), "Download in progress", Toast.LENGTH_LONG).show();
 
             DownloadManager.Request requestDM= new DownloadManager.Request(Uri.parse(pictureUrl));
             requestDM.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE | DownloadManager.Request.NETWORK_WIFI);
@@ -115,6 +111,7 @@ public class ImageDetailsFragment extends Fragment {
     }
 
     private void loadSelectedImage() {
+
         long pictureId=0;
        String key= API_KEY.API_KEY;
 //
@@ -140,7 +137,7 @@ public class ImageDetailsFragment extends Fragment {
 
                      Glide.with(getContext()).load(pictureDetailsResponse.getHitsList().get(0).getUserImageURL())
                              .placeholder(R.drawable.ic_person_theme_color_24dp).into(binding.ivImageAuthor);
-                     binding.tvImageAuthorName.setText(pictureDetailsResponse.getHitsList().get(0).getLargeImageURL()+"Author: "+String.valueOf(pictureDetailsResponse.getHitsList().get(0).getUser()));
+                     binding.tvImageAuthorNameValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getUser()));
                      pictureUrl=pictureDetailsResponse.getHitsList().get(0).getLargeImageURL();
 
 

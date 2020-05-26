@@ -28,10 +28,10 @@ public class HomeViewModel extends AndroidViewModel {
 
 
 
-    public LiveData<PictureResponse> getPictures(String key,String category,String image_type, int per_page){
+    public LiveData<PictureResponse> getPictures(){
 
 
-        pictureResponseMediatorLiveData.addSource(homeRepository.getPictures(key,category,image_type,per_page), pictureResponse -> pictureResponseMediatorLiveData.setValue(pictureResponse));
+        pictureResponseMediatorLiveData.addSource(homeRepository.getPictures(), pictureResponse -> pictureResponseMediatorLiveData.setValue(pictureResponse));
         return pictureResponseMediatorLiveData;
     }
 

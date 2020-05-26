@@ -1,4 +1,4 @@
-package com.claykab.photoApp.ui.category;
+package com.claykab.photoApp.ui.categoryview;
 
 import android.app.Application;
 
@@ -6,11 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.claykab.photoApp.model.PictureResponse;
-import com.claykab.photoApp.ui.home.HomeRepository;
+import com.claykab.photoApp.ui.category.CategoryRepository;
 
 public class CategoryViewModel extends AndroidViewModel {
     private MediatorLiveData<PictureResponse> pictureResponseMediatorLiveData;
