@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -39,7 +40,9 @@ public class CategoryViewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding=FragmentCategoryViewBinding.inflate(inflater, container, false);
-         categoryViewModel= ViewModelProviders.of(this).get(CategoryViewModel.class);
+
+         categoryViewModel= new ViewModelProvider(this).get(CategoryViewModel.class);
+
         GridLayoutManager gridLayoutManager= new GridLayoutManager(getContext(),3);
 
 

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Environment;
@@ -45,7 +46,7 @@ public class ImageDetailsFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        imageDetailsViewModel= ViewModelProviders.of(this).get(ImageDetailsViewModel.class);
+        imageDetailsViewModel=new  ViewModelProvider(this).get(ImageDetailsViewModel.class);
 
         loadSelectedImage();
 
