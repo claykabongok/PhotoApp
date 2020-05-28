@@ -91,6 +91,9 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.PictureV
             }else if(navigationAction.equals("categoryViewAction")) {
                 //navigate to view picture details
                Navigation.findNavController(v).navigate(R.id.action_categoryViewFragment_to_imageDetailsFragment, bundle);
+            }else if(navigationAction.equals("searchAction")){
+                Navigation.findNavController(v).navigate(R.id.action_navigation_search_to_imageDetailsFragment, bundle);
+
             }
 
 

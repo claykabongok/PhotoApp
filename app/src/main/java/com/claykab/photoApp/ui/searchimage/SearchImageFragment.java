@@ -15,16 +15,19 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.claykab.photoApp.R;
 import com.claykab.photoApp.databinding.FragmentSearchImageBinding;
-import com.claykab.photoApp.utils.NetworkState;
+import com.claykab.photoApp.adapters.PictureAdapter;
 
 public class SearchImageFragment extends Fragment {
 
     private SearchImageViewModel searchImageViewModel;
     private FragmentSearchImageBinding binding;
+    private PictureAdapter pictureAdapter;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -32,11 +35,21 @@ public class SearchImageFragment extends Fragment {
 
         binding =FragmentSearchImageBinding.inflate(inflater, container, false);
 
-        searchImageViewModel =
-                ViewModelProviders.of(this).get(SearchImageViewModel.class);
+//        searchImageViewModel =
+//                ViewModelProviders.of(this).get(SearchImageViewModel.class);
+        searchImageViewModel=new ViewModelProvider(this).get(SearchImageViewModel.class);
 
         setHasOptionsMenu(true);
-        searchImageViewModel.getText().observe(getViewLifecycleOwner(), s -> binding.textNotifications.setText(s));
+        GridLayoutManager gridLayoutManager= new GridLayoutManager(getContext(),3);
+
+
+
+        binding.recyclerviewPictures.setHasFixedSize(true);
+        binding.recyclerviewPictures.setLayoutManager(gridLayoutManager);
+
+
+
+
         return  binding.getRoot();
     }
 
@@ -65,13 +78,13 @@ public class SearchImageFragment extends Fragment {
             searchView.setInputType(InputType.TYPE_CLASS_TEXT);
             searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
-            boolean isConnected= NetworkState.isDeviceConnected(getContext());
 
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
 
-                    Toast.makeText(getContext(),"Search submitted.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),"Search submitted. query:"+query, Toast.LENGTH_LONG).show();
+                   loadPictures(query);
                     return false;
                 }
 
@@ -101,4 +114,34 @@ public class SearchImageFragment extends Fragment {
         super.onDestroyView();
         binding=null;
     }
+
+    private void loadPictures(String query) {
+      //Toast.makeText(getContext(), "Query: "+query,Toast.LENGTH_LONG).show();
+        binding.shimmerFrameLayout.setVisibility(View.VISIBLE);
+        binding.tvSearchInstruction.setVisibility(View.GONE);
+      searchImageViewModel.searchPictures(query).observe(getViewLifecycleOwner(), pictureResponse -> {
+          try {
+              if(!pictureResponse.getHitsList().isEmpty()){
+
+                  binding.shimmerFrameLayout.stopShimmer();
+                  binding.shimmerFrameLayout.setVisibility(View.GONE);
+                  pictureAdapter= new PictureAdapter(getContext(), pictureResponse.getHitsList(),"searchAction");
+                  binding.recyclerviewPictures.setVisibility(View.VISIBLE);
+                  binding.recyclerviewPictures.setAdapter(pictureAdapter);
+              }else {
+                  Toast.makeText(getContext(),"Error: ",Toast.LENGTH_LONG).show();
+              }
+          } catch (Exception e) {
+              e.printStackTrace();
+
+          }
+
+      });
+
+
+
+
+
+    }
+
 }

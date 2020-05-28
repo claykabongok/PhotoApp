@@ -29,7 +29,11 @@
         android:id="@+id/navigation_search"
         android:name="com.claykab.photoApp.ui.searchimage.SearchImageFragment"
         android:label="@string/title_search"
-        tools:layout="@layout/fragment_search_image" />
+        tools:layout="@layout/fragment_search_image" >
+        <action
+            android:id="@+id/action_navigation_search_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/imageDetailsFragment"
         android:name="com.claykab.photoApp.ui.imageDetails.ImageDetailsFragment"
