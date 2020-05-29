@@ -14,10 +14,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.claykab.photoApp.R;
 import com.claykab.photoApp.adapters.PictureAdapter;
 import com.claykab.photoApp.databinding.FragmentHomeBinding;
 import com.claykab.photoApp.model.PictureResponse;
 import com.claykab.photoApp.utils.API_KEY;
+import com.claykab.photoApp.utils.NetworkState;
+import com.google.android.material.snackbar.Snackbar;
 
 public class HomeFragment extends Fragment {
 
@@ -39,7 +42,15 @@ public class HomeFragment extends Fragment {
 
         binding.recyclerviewPictures.setHasFixedSize(true);
         binding.recyclerviewPictures.setLayoutManager(gridLayoutManager);
-        loadPictures();
+
+        //verifies if the device is connected before making a request
+        boolean isConnected= NetworkState.isDeviceConnected(getContext());
+        if(isConnected) {
+            loadPictures();
+        }
+        else {
+            displayNoConnectivityMessage();
+        }
 
 
 
@@ -108,4 +119,22 @@ public class HomeFragment extends Fragment {
         binding=null;
 
     }
+
+    //Notifies the user when the device is offline
+    private void displayNoConnectivityMessage() {
+        try {
+
+            Snackbar.make(getActivity().findViewById(R.id.nav_host_fragment), "Device offline, please connect to a Wifi or cellular network.", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Retry", v -> {
+                        Toast.makeText(getContext(),"Trying to reconnect...",Toast.LENGTH_LONG).show();
+                        loadPictures();
+
+                    }).show();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

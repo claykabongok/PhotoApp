@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.claykab.photoApp.R;
 import com.claykab.photoApp.databinding.FragmentImageDetailsBinding;
 import com.claykab.photoApp.utils.API_KEY;
+import com.claykab.photoApp.utils.NetworkState;
 import com.google.android.material.snackbar.Snackbar;
 
 
@@ -48,11 +49,20 @@ public class ImageDetailsFragment extends Fragment {
         }
         imageDetailsViewModel=new  ViewModelProvider(this).get(ImageDetailsViewModel.class);
 
-        loadSelectedImage();
+
+        //verifies if the device is connected before making a request
+        boolean isConnected= NetworkState.isDeviceConnected(getContext());
+        if(isConnected) {
+            loadSelectedImage();
+        }
+        else {
+            displayNoConnectivityMessage();
+        }
+
 
 
         binding.ibDownloadPicture.setOnClickListener(v -> {
-           //Toast.makeText(getContext(), "Download button clicked!",Toast.LENGTH_LONG).show();
+
             try {
                 if (ContextCompat.checkSelfPermission(
                         getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
@@ -207,6 +217,22 @@ public class ImageDetailsFragment extends Fragment {
                 }
                 return;
         }
+    }
+
+    //Notifies the user when the device is offline
+    private void displayNoConnectivityMessage() {
+        try {
+
+            Snackbar.make(getActivity().findViewById(R.id.nav_host_fragment), "Device offline, please connect to a Wifi or cellular network.", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Retry", v -> {
+                       loadSelectedImage();
+                    }).show();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

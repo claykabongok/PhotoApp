@@ -16,10 +16,13 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
+import com.claykab.photoApp.R;
 import com.claykab.photoApp.adapters.PictureAdapter;
 import com.claykab.photoApp.databinding.FragmentCategoryViewBinding;
 import com.claykab.photoApp.model.PictureResponse;
 import com.claykab.photoApp.utils.API_KEY;
+import com.claykab.photoApp.utils.NetworkState;
+import com.google.android.material.snackbar.Snackbar;
 
 
 /**
@@ -49,11 +52,18 @@ public class CategoryViewFragment extends Fragment {
 
         binding.recyclerviewPictures.setHasFixedSize(true);
         binding.recyclerviewPictures.setLayoutManager(gridLayoutManager);
-        String categoryT="";
 
-//
 
-        loadPictures();
+        //verifies if the device is connected before making a request
+        boolean isConnected= NetworkState.isDeviceConnected(getContext());
+        if(isConnected) {
+            loadPictures();
+        }
+        else {
+            displayNoConnectivityMessage();
+        }
+
+
 
         return binding.getRoot();
     }
@@ -111,5 +121,22 @@ public class CategoryViewFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding=null;
+    }
+
+    //Notifies the user when the device is offline
+    private void displayNoConnectivityMessage() {
+        try {
+
+            Snackbar.make(getActivity().findViewById(R.id.nav_host_fragment), "Device offline, please connect to a Wifi or cellular network.", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Retry", v -> {
+
+                        loadPictures();
+
+                    }).show();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

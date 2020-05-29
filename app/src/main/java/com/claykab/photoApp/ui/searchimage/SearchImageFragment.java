@@ -21,6 +21,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.claykab.photoApp.R;
 import com.claykab.photoApp.databinding.FragmentSearchImageBinding;
 import com.claykab.photoApp.adapters.PictureAdapter;
+import com.claykab.photoApp.utils.NetworkState;
+import com.google.android.material.snackbar.Snackbar;
 
 public class SearchImageFragment extends Fragment {
 
@@ -83,8 +85,17 @@ public class SearchImageFragment extends Fragment {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
 
-                    Toast.makeText(getContext(),"Search submitted. query:"+query, Toast.LENGTH_LONG).show();
-                   loadPictures(query);
+
+
+                    //verifies if the device is connected before making a request
+                    boolean isConnected= NetworkState.isDeviceConnected(getContext());
+                    if(isConnected) {
+                        loadPictures(query);
+                    }
+                    else {
+                        displayNoConnectivityMessage();
+                    }
+
                     return false;
                 }
 
@@ -143,5 +154,20 @@ public class SearchImageFragment extends Fragment {
 
 
     }
+    //Notifies the user when the device is offline
+    private void displayNoConnectivityMessage() {
+        try {
 
+            Snackbar.make(getActivity().findViewById(R.id.nav_host_fragment), "Device offline, please connect to a Wifi or cellular network.", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("OK", v -> {
+
+                    }).show();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }
+
