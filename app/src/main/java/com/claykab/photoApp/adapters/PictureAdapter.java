@@ -53,8 +53,7 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.PictureV
          */
 
         Glide.with(getContext()).load(hits.getWebformatURL())
-                .placeholder(R.drawable.loader).apply(new RequestOptions()
-                .override(800, 600)).into(pictureViewHolder.iv_picture_grid);
+                .placeholder(R.drawable.loader).into(pictureViewHolder.iv_picture_grid);
 
 
     }
@@ -86,12 +85,13 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.PictureV
             Bundle bundle = new Bundle();
             bundle.putLong("pictureId", pictureId);
             if(navigationAction.equals("homeAction")) {
-                //navigate to view picture details
+                //navigate to view picture details from home screen
                 Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_imageDetailsFragment, bundle);
             }else if(navigationAction.equals("categoryViewAction")) {
-                //navigate to view picture details
+                //navigate to view picture details from category screen
                Navigation.findNavController(v).navigate(R.id.action_categoryViewFragment_to_imageDetailsFragment, bundle);
             }else if(navigationAction.equals("searchAction")){
+                //navigate  to view picture details from search screen
                 Navigation.findNavController(v).navigate(R.id.action_navigation_search_to_imageDetailsFragment, bundle);
 
             }
