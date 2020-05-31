@@ -1,4 +1,5 @@
-# PhotoApp is app that uses a REST API , to enable user to search, view and download images on user's device.
+# PhotoApp
+### PhotoApp is an app that uses a REST API  to enable user to search, view and download images on user's device.
 
 
 ##  Concepts used in this Application
@@ -16,6 +17,34 @@
 
 ##  Application Demo:
 
-<img src="https://user-images.githubusercontent.com/60129144/72930554-d7840980-3d64-11ea-87f0-905ded61f806.jpg" width=400 alt="Demo screen">
+### Home screen:
+<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen.jpg?raw=true" width=400 alt="Demo screen">
+
+### Home screen loading effect:
+<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen_loading_effect.jpg?raw=true" width=400 alt="Demo screen">
+
+### Home screen no connectivity:
+<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen_no_connectivity.jpg?raw=true" width=400 alt="Demo screen">
+
+### Category screen:
+<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/category_screen.jpg?raw=true" width=400 alt="Demo screen">
+
+### Search screen:
+<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/search_screen.jpg?raw=true" width=400 alt="Demo screen">
+
+### Selected image screen:
+<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/image_details_screen.jpg?raw=true" width=400 alt="Demo screen">
+
+### Selected image download screen permission request:
+<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/image_details_screen_permission_request.jpg?raw=true" width=400 alt="Demo screen">
+
+### Selected image download screen permission request not granted:
+<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/image_details_screen_permission_not_granted.jpg?raw=true" width=400 alt="Demo screen">
+
+
+
+### Selected image download in progress:
+<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/image_details_screen_doanload_inprogress.jpg?raw=true" width=400 alt="Demo screen">
+
 
 
