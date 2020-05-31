@@ -17,14 +17,15 @@
 
 ##  Application Demo:
 
-### Home screen:
-<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen.jpg?raw=true" width=400 alt="Demo screen">
+### Home screen no connectivity:
+<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen_no_connectivity.jpg?raw=true" width=400 alt="Demo screen">
 
 ### Home screen loading effect:
 <img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen_loading_effect.jpg?raw=true" width=400 alt="Demo screen">
 
-### Home screen no connectivity:
-<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen_no_connectivity.jpg?raw=true" width=400 alt="Demo screen">
+
+### Home screen:
+<img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen.jpg?raw=true" width=400 alt="Demo screen">
 
 ### Category screen:
 <img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/category_screen.jpg?raw=true" width=400 alt="Demo screen">
