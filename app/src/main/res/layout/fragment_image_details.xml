@@ -23,7 +23,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            android:text="Author:"
+            android:text="by:"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/tv_image_author_name_value"
             app:layout_constraintStart_toEndOf="@+id/iv_image_author"

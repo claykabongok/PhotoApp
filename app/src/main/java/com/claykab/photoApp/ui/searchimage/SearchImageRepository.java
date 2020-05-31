@@ -24,7 +24,14 @@ public class SearchImageRepository {
             @Override
             public void onResponse(Call<PictureResponse> call, Response<PictureResponse> response) {
 
-                pictureResponseMutableLiveData.postValue( response.body());
+                if(response.isSuccessful()){
+                    pictureResponseMutableLiveData.postValue( response.body());
+                }
+                else {
+                    pictureResponseMutableLiveData.postValue(new PictureResponse(response.code(), response.message()));
+
+                }
+
 
 
             }

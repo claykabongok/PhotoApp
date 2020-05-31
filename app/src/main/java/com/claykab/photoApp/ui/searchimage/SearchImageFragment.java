@@ -93,7 +93,7 @@ public class SearchImageFragment extends Fragment {
                         loadPictures(query);
                     }
                     else {
-                        displayNoConnectivityMessage();
+                        displayMessage("Device offline, please connect to a Wifi or cellular network.");
                     }
 
                     return false;
@@ -139,9 +139,13 @@ public class SearchImageFragment extends Fragment {
                   pictureAdapter= new PictureAdapter(getContext(), pictureResponse.getHitsList(),"searchAction");
                   binding.recyclerviewPictures.setVisibility(View.VISIBLE);
                   binding.recyclerviewPictures.setAdapter(pictureAdapter);
-              }else {
-                  Toast.makeText(getContext(),"Error: ",Toast.LENGTH_LONG).show();
+              }else  {
+                  binding.shimmerFrameLayout.stopShimmer();
+                  binding.shimmerFrameLayout.setVisibility(View.GONE);
+                  binding.tvSearchInstruction.setVisibility(View.VISIBLE);
+                  displayMessage("No results found, try with another word");
               }
+
           } catch (Exception e) {
               e.printStackTrace();
 
@@ -155,10 +159,10 @@ public class SearchImageFragment extends Fragment {
 
     }
     //Notifies the user when the device is offline
-    private void displayNoConnectivityMessage() {
+    private void displayMessage(String message) {
         try {
 
-            Snackbar.make(getActivity().findViewById(R.id.nav_host_fragment), "Device offline, please connect to a Wifi or cellular network.", Snackbar.LENGTH_INDEFINITE)
+            Snackbar.make(getActivity().findViewById(R.id.nav_host_fragment), message, Snackbar.LENGTH_INDEFINITE)
                     .setAction("OK", v -> {
 
                     }).show();

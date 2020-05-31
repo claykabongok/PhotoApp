@@ -73,8 +73,8 @@ public class HomeFragment extends Fragment {
                         pictureAdapter= new PictureAdapter(getContext(), pictureResponse.getHitsList(),"homeAction");
                         binding.recyclerviewPictures.setVisibility(View.VISIBLE);
                         binding.recyclerviewPictures.setAdapter(pictureAdapter);
-          }else {
-                    Toast.makeText(getContext(),"Error: ",Toast.LENGTH_LONG).show();
+          }else if(pictureResponse.getError() != null) {
+                    Toast.makeText(getContext(),"Error: "+pictureResponse.getError().getLocalizedMessage(),Toast.LENGTH_LONG).show();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
