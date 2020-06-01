@@ -1,5 +1,5 @@
 # PhotoApp
-### PhotoApp is an app that uses a REST API  to enable user to search, view and download images on user's device.
+### PhotoApp is an app that uses a REST API  to enable user to search, view and download images.
 
 
 ##  Concepts used in this Application
@@ -14,13 +14,14 @@
 * [Glide image loading library for Android](https://bumptech.github.io/glide/)
 * [Android Permissions request](https://developer.android.com/training/permissions/requesting)
 * [DownloadManager](https://developer.android.com/reference/android/app/DownloadManager)
+* [Shimmer: an Android library that provides an easy way to add a shimmer effect to any view](https://facebook.github.io/shimmer-android/)
 
 ##  Application Demo:
 
 ### Home screen no connectivity:
 <img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen_no_connectivity.jpg?raw=true" width=400 alt="Demo screen">
 
-### Home screen loading effect:
+### Home screen Shimmer loading effect:
 <img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen_loading_effect.jpg?raw=true" width=400 alt="Demo screen">
 
 
