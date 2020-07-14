@@ -1,88 +1,60 @@
 package com.claykab.photoApp.ui.category;
 
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.claykab.photoApp.R;
+import com.claykab.photoApp.adapters.CategoryTypeAdapter;
 import com.claykab.photoApp.databinding.FragmentCategoryBinding;
-import com.claykab.photoApp.model.hits;
+import com.claykab.photoApp.model.CategoryType;
+import com.claykab.photoApp.utils.CategoryImageUrl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryFragment extends Fragment {
 
-    private CategoryViewModel categoryViewModel;
+
     private FragmentCategoryBinding binding;
+    private CategoryTypeAdapter categoryTypeAdapter;
+    private List<CategoryType> categoryTypeList= new ArrayList<>();
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        categoryViewModel =
-                ViewModelProviders.of(this).get(CategoryViewModel.class);
+
         binding= FragmentCategoryBinding.inflate(inflater, container, false);
 
-        View root = inflater.inflate(R.layout.fragment_category, container, false);
-
-        binding.cvCatFashion.setOnClickListener(v -> {
-
-            Bundle bundle= new Bundle();
-            String category="fashion";
-            bundle.putString("category",category);
-           Navigation.findNavController(v).navigate(R.id.action_navigation_category_to_categoryViewFragment,bundle);
-
-        });
-        binding.cvCatNature.setOnClickListener(v -> {
-            Bundle bundle= new Bundle();
-            String category="nature";
-            bundle.putString("category",category);
-            Navigation.findNavController(v).navigate(R.id.action_navigation_category_to_categoryViewFragment,bundle);
-
-        });
-        binding.cvCatScience.setOnClickListener(v -> {
-            Bundle bundle= new Bundle();
-            String category="science";
-            bundle.putString("category",category);
-            Navigation.findNavController(v).navigate(R.id.action_navigation_category_to_categoryViewFragment,bundle);
-
-        });
-        binding.cvCatPeople.setOnClickListener(v -> {
-            Bundle bundle= new Bundle();
-            String category="people";
-            bundle.putString("category",category);
-            Navigation.findNavController(v).navigate(R.id.action_navigation_category_to_categoryViewFragment,bundle);
-
-        });
-        binding.cvCatTravel.setOnClickListener(v -> {
-            Bundle bundle= new Bundle();
-            String category="travel";
-            bundle.putString("category",category);
-            Navigation.findNavController(v).navigate(R.id.action_navigation_category_to_categoryViewFragment,bundle);
-
-        });
-        binding.cvCatBuildings.setOnClickListener(v -> {
-            Bundle bundle= new Bundle();
-            String category="buildings";
-            bundle.putString("category",category);
-            Navigation.findNavController(v).navigate(R.id.action_navigation_category_to_categoryViewFragment,bundle);
-
-        });
 
 
-        binding.cvCatPlaces.setOnClickListener(v ->{
-            Bundle bundle= new Bundle();
-            String category="places";
-            bundle.putString("category",category);
-            Navigation.findNavController(v).navigate(R.id.action_navigation_category_to_categoryViewFragment,bundle);
+//        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL,false);
+        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(getContext());
+        binding.recyclerViewCategoryType.setHasFixedSize(true);
+        binding.recyclerViewCategoryType.setLayoutManager(linearLayoutManager);
 
-        });
+
+
+        categoryTypeList.add(new CategoryType("fashion", CategoryImageUrl.FASHION_IMAGE_URL));
+        categoryTypeList.add(new CategoryType("nature",CategoryImageUrl.NATURE_IMAGE_URL));
+        categoryTypeList.add(new CategoryType("science",CategoryImageUrl.SCIENCE_IMAGE_URL));
+        categoryTypeList.add(new CategoryType("people",CategoryImageUrl.PEOPLE_IMAGE_URL));
+        categoryTypeList.add(new CategoryType("travel",CategoryImageUrl.TRAVEL_IMAGE_URL));
+        categoryTypeList.add(new CategoryType("buildings",CategoryImageUrl.BUILDING_IMAGE_URL));
+        categoryTypeList.add(new CategoryType("places",CategoryImageUrl.PLACES_IMAGE_URL));
+        categoryTypeAdapter=new CategoryTypeAdapter(getContext(), categoryTypeList);
+
+
+        binding.recyclerViewCategoryType.setVisibility(View.VISIBLE);
+        binding.recyclerViewCategoryType.setAdapter(categoryTypeAdapter);
+
 
 
         return binding.getRoot();

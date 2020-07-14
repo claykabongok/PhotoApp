@@ -18,6 +18,7 @@
 
     <color name="colorCustomGray">#dddddd</color>
     <color name="colorWhite">#fff</color>
+    <color name="colorBackgroungBlak">#4D000000</color>
 
 
 </resources>

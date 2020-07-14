@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="50dp"
 
     tools:context=".ui.category.CategoryFragment">
    <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,207 +13,240 @@
 
        >
 
-       <androidx.cardview.widget.CardView
-           android:id="@+id/cv_cat_fashion"
+<!--       <androidx.cardview.widget.CardView-->
+<!--           android:id="@+id/cv_cat_fashion"-->
+<!--           android:layout_width="0dp"-->
+<!--           android:layout_height="80dp"-->
+<!--           android:layout_marginStart="8dp"-->
+<!--           android:layout_marginTop="8dp"-->
+<!--           android:layout_marginEnd="8dp"-->
+<!--           android:clickable="true"-->
+<!--           app:cardCornerRadius="7dp"-->
+<!--           app:cardElevation="5dp"-->
+<!--           app:layout_constraintEnd_toEndOf="parent"-->
+<!--           app:layout_constraintStart_toStartOf="parent"-->
+<!--           app:layout_constraintTop_toTopOf="parent">-->
+
+
+<!--           <TextView-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:layout_gravity="center"-->
+<!--               android:layout_margin="12dp"-->
+<!--               android:padding="12dp"-->
+<!--               android:text="Fashion"-->
+<!--               android:textColor="@color/colorPrimary"-->
+<!--               android:textSize="20sp"-->
+<!--               android:textStyle="bold" />-->
+<!--       </androidx.cardview.widget.CardView>-->
+
+<!--       <androidx.cardview.widget.CardView-->
+<!--           android:id="@+id/cv_cat_nature"-->
+<!--           android:layout_width="0dp"-->
+<!--           android:layout_height="80dp"-->
+<!--           android:layout_marginStart="8dp"-->
+<!--           android:layout_marginTop="8dp"-->
+<!--           android:layout_marginEnd="8dp"-->
+<!--           android:background="@color/colorBackgroundWhiteSmoke"-->
+<!--           android:clickable="true"-->
+<!--           app:cardCornerRadius="7dp"-->
+<!--           app:cardElevation="5dp"-->
+<!--           app:layout_constraintEnd_toEndOf="parent"-->
+<!--           app:layout_constraintStart_toStartOf="parent"-->
+<!--           app:layout_constraintTop_toBottomOf="@+id/cv_cat_fashion">-->
+
+
+<!--           <TextView-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:layout_gravity="center"-->
+<!--               android:layout_margin="12dp"-->
+<!--               android:padding="12dp"-->
+<!--               android:text="nature"-->
+
+<!--               android:textColor="@color/colorPrimary"-->
+<!--               android:textSize="20sp"-->
+<!--               android:textStyle="bold" />-->
+<!--       </androidx.cardview.widget.CardView>-->
+
+<!--       <androidx.cardview.widget.CardView-->
+<!--           android:id="@+id/cv_cat_science"-->
+<!--           android:layout_width="0dp"-->
+<!--           android:layout_height="80dp"-->
+<!--           android:layout_marginStart="8dp"-->
+<!--           android:layout_marginTop="8dp"-->
+<!--           android:layout_marginEnd="8dp"-->
+<!--           android:background="@color/colorBackgroundWhiteSmoke"-->
+<!--           android:clickable="true"-->
+<!--           app:cardCornerRadius="7dp"-->
+<!--           app:cardElevation="5dp"-->
+<!--           app:layout_constraintEnd_toEndOf="parent"-->
+<!--           app:layout_constraintStart_toStartOf="parent"-->
+<!--           app:layout_constraintTop_toBottomOf="@+id/cv_cat_nature">-->
+
+
+<!--           <TextView-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:layout_gravity="center"-->
+<!--               android:layout_margin="12dp"-->
+<!--               android:padding="12dp"-->
+<!--               android:text="science"-->
+
+<!--               android:textColor="@color/colorPrimary"-->
+<!--               android:textSize="20sp"-->
+<!--               android:textStyle="bold" />-->
+<!--       </androidx.cardview.widget.CardView>-->
+
+<!--       <androidx.cardview.widget.CardView-->
+<!--           android:id="@+id/cv_cat_people"-->
+<!--           android:layout_width="0dp"-->
+<!--           android:layout_height="80dp"-->
+<!--           android:layout_marginStart="8dp"-->
+<!--           android:layout_marginTop="8dp"-->
+<!--           android:layout_marginEnd="8dp"-->
+<!--           android:background="@color/colorBackgroundWhiteSmoke"-->
+<!--           android:clickable="true"-->
+<!--           app:cardCornerRadius="7dp"-->
+<!--           app:cardElevation="5dp"-->
+<!--           app:layout_constraintEnd_toEndOf="parent"-->
+<!--           app:layout_constraintStart_toStartOf="parent"-->
+<!--           app:layout_constraintTop_toBottomOf="@+id/cv_cat_science">-->
+
+
+<!--           <TextView-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:layout_gravity="center"-->
+<!--               android:layout_margin="12dp"-->
+<!--               android:padding="12dp"-->
+<!--               android:text="people"-->
+
+<!--               android:textColor="@color/colorPrimary"-->
+<!--               android:textSize="20sp"-->
+<!--               android:textStyle="bold" />-->
+<!--       </androidx.cardview.widget.CardView>-->
+
+<!--       <androidx.cardview.widget.CardView-->
+<!--           android:id="@+id/cv_cat_travel"-->
+<!--           android:layout_width="0dp"-->
+<!--           android:layout_height="80dp"-->
+<!--           android:layout_marginStart="8dp"-->
+<!--           android:layout_marginTop="8dp"-->
+<!--           android:layout_marginEnd="8dp"-->
+<!--           android:background="@color/colorBackgroundWhiteSmoke"-->
+<!--           android:clickable="true"-->
+<!--           app:cardCornerRadius="7dp"-->
+<!--           app:cardElevation="5dp"-->
+<!--           app:layout_constraintEnd_toEndOf="parent"-->
+<!--           app:layout_constraintStart_toStartOf="parent"-->
+<!--           app:layout_constraintTop_toBottomOf="@+id/cv_cat_people">-->
+
+
+<!--           <TextView-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:layout_gravity="center"-->
+<!--               android:layout_margin="12dp"-->
+<!--               android:padding="12dp"-->
+<!--               android:text="Travel"-->
+
+<!--               android:textColor="@color/colorPrimary"-->
+<!--               android:textSize="20sp"-->
+<!--               android:textStyle="bold" />-->
+<!--       </androidx.cardview.widget.CardView>-->
+
+<!--       <androidx.cardview.widget.CardView-->
+<!--           android:id="@+id/cv_cat_buildings"-->
+<!--           android:layout_width="0dp"-->
+<!--           android:layout_height="80dp"-->
+<!--           android:layout_marginStart="8dp"-->
+<!--           android:layout_marginTop="8dp"-->
+<!--           android:layout_marginEnd="8dp"-->
+
+<!--           android:clickable="true"-->
+<!--           app:cardCornerRadius="7dp"-->
+<!--           app:cardElevation="5dp"-->
+<!--           app:layout_constraintEnd_toEndOf="parent"-->
+<!--           app:layout_constraintStart_toStartOf="parent"-->
+<!--           app:layout_constraintTop_toBottomOf="@+id/cv_cat_travel">-->
+
+
+<!--           <TextView-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:layout_gravity="center"-->
+<!--               android:layout_margin="12dp"-->
+<!--               android:padding="12dp"-->
+<!--               android:text="Buildings"-->
+
+<!--               android:textColor="@color/colorPrimary"-->
+<!--               android:textSize="20sp"-->
+<!--               android:textStyle="bold" />-->
+<!--       </androidx.cardview.widget.CardView>-->
+<!--       <androidx.cardview.widget.CardView-->
+<!--           android:id="@+id/cv_cat_places"-->
+<!--           android:layout_width="0dp"-->
+<!--           android:layout_height="80dp"-->
+<!--           android:layout_marginStart="8dp"-->
+<!--           android:layout_marginTop="8dp"-->
+<!--           android:layout_marginEnd="8dp"-->
+
+<!--           android:layout_marginBottom="80dp"-->
+<!--           android:clickable="true"-->
+<!--           app:cardCornerRadius="7dp"-->
+<!--           app:cardElevation="5dp"-->
+<!--           app:layout_constraintBottom_toBottomOf="parent"-->
+<!--           app:layout_constraintEnd_toEndOf="parent"-->
+<!--           app:layout_constraintStart_toStartOf="parent"-->
+<!--           app:layout_constraintTop_toBottomOf="@+id/cv_cat_buildings">-->
+
+
+<!--           <TextView-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:layout_gravity="center"-->
+<!--               android:layout_margin="12dp"-->
+<!--               android:padding="12dp"-->
+<!--               android:text="Places"-->
+
+<!--               android:textColor="@color/colorPrimary"-->
+<!--               android:textSize="20sp"-->
+<!--               android:textStyle="bold" />-->
+<!--       </androidx.cardview.widget.CardView>-->
+<!--       <TextView-->
+<!--           android:id="@+id/tv_header_category_type"-->
+<!--           android:layout_width="0dp"-->
+<!--           android:layout_height="wrap_content"-->
+<!--           android:layout_marginStart="8dp"-->
+<!--           android:layout_marginTop="24dp"-->
+<!--           android:layout_marginEnd="8dp"-->
+<!--           android:text="Image categories"-->
+<!--           android:textAlignment="center"-->
+<!--           android:textAppearance="@android:style/TextAppearance.Large"-->
+<!--           android:textColor="@color/colorPrimary"-->
+<!--           app:layout_constraintEnd_toEndOf="parent"-->
+<!--           app:layout_constraintStart_toStartOf="parent"-->
+<!--           app:layout_constraintTop_toTopOf="parent" />-->
+
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/recyclerViewCategoryType"
            android:layout_width="0dp"
-           android:layout_height="80dp"
+           android:layout_height="wrap_content"
            android:layout_marginStart="8dp"
-           android:layout_marginTop="8dp"
+           android:layout_marginTop="16dp"
            android:layout_marginEnd="8dp"
-           android:clickable="true"
-           app:cardCornerRadius="7dp"
-           app:cardElevation="5dp"
+           android:layout_marginBottom="32dp"
+           app:layout_constraintBottom_toBottomOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.0"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toTopOf="parent">
 
 
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center"
-               android:layout_margin="12dp"
-               android:padding="12dp"
-               android:text="Fashion"
-               android:textColor="@color/colorPrimary"
-               android:textSize="20sp"
-               android:textStyle="bold" />
-       </androidx.cardview.widget.CardView>
-
-       <androidx.cardview.widget.CardView
-           android:id="@+id/cv_cat_nature"
-           android:layout_width="0dp"
-           android:layout_height="80dp"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="8dp"
-           android:layout_marginEnd="8dp"
-           android:background="@color/colorBackgroundWhiteSmoke"
-           android:clickable="true"
-           app:cardCornerRadius="7dp"
-           app:cardElevation="5dp"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/cv_cat_fashion">
+       </androidx.recyclerview.widget.RecyclerView>
 
 
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center"
-               android:layout_margin="12dp"
-               android:padding="12dp"
-               android:text="nature"
-
-               android:textColor="@color/colorPrimary"
-               android:textSize="20sp"
-               android:textStyle="bold" />
-       </androidx.cardview.widget.CardView>
-
-       <androidx.cardview.widget.CardView
-           android:id="@+id/cv_cat_science"
-           android:layout_width="0dp"
-           android:layout_height="80dp"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="8dp"
-           android:layout_marginEnd="8dp"
-           android:background="@color/colorBackgroundWhiteSmoke"
-           android:clickable="true"
-           app:cardCornerRadius="7dp"
-           app:cardElevation="5dp"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/cv_cat_nature">
-
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center"
-               android:layout_margin="12dp"
-               android:padding="12dp"
-               android:text="science"
-
-               android:textColor="@color/colorPrimary"
-               android:textSize="20sp"
-               android:textStyle="bold" />
-       </androidx.cardview.widget.CardView>
-
-       <androidx.cardview.widget.CardView
-           android:id="@+id/cv_cat_people"
-           android:layout_width="0dp"
-           android:layout_height="80dp"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="8dp"
-           android:layout_marginEnd="8dp"
-           android:background="@color/colorBackgroundWhiteSmoke"
-           android:clickable="true"
-           app:cardCornerRadius="7dp"
-           app:cardElevation="5dp"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/cv_cat_science">
-
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center"
-               android:layout_margin="12dp"
-               android:padding="12dp"
-               android:text="people"
-
-               android:textColor="@color/colorPrimary"
-               android:textSize="20sp"
-               android:textStyle="bold" />
-       </androidx.cardview.widget.CardView>
-
-       <androidx.cardview.widget.CardView
-           android:id="@+id/cv_cat_travel"
-           android:layout_width="0dp"
-           android:layout_height="80dp"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="8dp"
-           android:layout_marginEnd="8dp"
-           android:background="@color/colorBackgroundWhiteSmoke"
-           android:clickable="true"
-           app:cardCornerRadius="7dp"
-           app:cardElevation="5dp"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/cv_cat_people">
-
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center"
-               android:layout_margin="12dp"
-               android:padding="12dp"
-               android:text="Travel"
-
-               android:textColor="@color/colorPrimary"
-               android:textSize="20sp"
-               android:textStyle="bold" />
-       </androidx.cardview.widget.CardView>
-
-       <androidx.cardview.widget.CardView
-           android:id="@+id/cv_cat_buildings"
-           android:layout_width="0dp"
-           android:layout_height="80dp"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="8dp"
-           android:layout_marginEnd="8dp"
-
-           android:clickable="true"
-           app:cardCornerRadius="7dp"
-           app:cardElevation="5dp"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/cv_cat_travel">
-
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center"
-               android:layout_margin="12dp"
-               android:padding="12dp"
-               android:text="Buildings"
-
-               android:textColor="@color/colorPrimary"
-               android:textSize="20sp"
-               android:textStyle="bold" />
-       </androidx.cardview.widget.CardView>
-       <androidx.cardview.widget.CardView
-           android:id="@+id/cv_cat_places"
-           android:layout_width="0dp"
-           android:layout_height="80dp"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="8dp"
-           android:layout_marginEnd="8dp"
-
-           android:layout_marginBottom="80dp"
-           android:clickable="true"
-           app:cardCornerRadius="7dp"
-           app:cardElevation="5dp"
-           app:layout_constraintBottom_toBottomOf="parent"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/cv_cat_buildings">
-
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center"
-               android:layout_margin="12dp"
-               android:padding="12dp"
-               android:text="Places"
-
-               android:textColor="@color/colorPrimary"
-               android:textSize="20sp"
-               android:textStyle="bold" />
-       </androidx.cardview.widget.CardView>
    </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -1,26 +1,20 @@
 package com.claykab.photoApp.ui.categoryview;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.GridLayoutManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.claykab.photoApp.R;
 import com.claykab.photoApp.adapters.PictureAdapter;
 import com.claykab.photoApp.databinding.FragmentCategoryViewBinding;
-import com.claykab.photoApp.model.PictureResponse;
-import com.claykab.photoApp.utils.API_KEY;
 import com.claykab.photoApp.utils.NetworkState;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -44,7 +38,9 @@ public class CategoryViewFragment extends Fragment {
         // Inflate the layout for this fragment
         binding=FragmentCategoryViewBinding.inflate(inflater, container, false);
 
-         categoryViewModel= new ViewModelProvider(this).get(CategoryViewModel.class);
+
+
+        categoryViewModel= new ViewModelProvider(this).get(CategoryViewModel.class);
 
         GridLayoutManager gridLayoutManager= new GridLayoutManager(getContext(),3);
 
@@ -114,6 +110,7 @@ public class CategoryViewFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.shimmerFrameLayout.startShimmer();
+
 
     }
 
