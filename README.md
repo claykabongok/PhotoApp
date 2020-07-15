@@ -17,7 +17,8 @@
 * [Shimmer: an Android library that provides an easy way to add a shimmer effect to any view](https://facebook.github.io/shimmer-android/)
 
 ##  Application Demo:
-<a href="https://media.giphy.com/media/jOnubiyeuoGegVD7C2/giphy.gif"><img src="https://media.giphy.com/media/jOnubiyeuoGegVD7C2/giphy.giff" title="demo"/></a>
+
+<a href="https://media.giphy.com/media/jOnubiyeuoGegVD7C2/giphy.gif"><img src="https://media.giphy.com/media/jOnubiyeuoGegVD7C2/giphy.gif" title="demo"/></a>
 ### Home screen no connectivity:
 <img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen_no_connectivity.jpg?raw=true" width=400 alt="Demo screen">
 
