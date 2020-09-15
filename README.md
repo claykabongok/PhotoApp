@@ -18,11 +18,10 @@
 
 ##  Application Demo:
 
-<<<<<<< HEAD
+
 <a href="https://media.giphy.com/media/jOnubiyeuoGegVD7C2/giphy.gif"><img src="https://media.giphy.com/media/jOnubiyeuoGegVD7C2/giphy.gif" title="demo"/></a>
-=======
-<a href="https://media.giphy.com/media/jOnubiyeuoGegVD7C2/giphy.gif"><img src="https://media.giphy.com/media/jOnubiyeuoGegVD7C2/giphy.giff" title="demo"/></a>
->>>>>>> 7ac8c45... :bug: Navigation up button fixed
+
+
 ### Home screen no connectivity:
 <img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/home_screen_no_connectivity.jpg?raw=true" width=400 alt="Demo screen">
 
