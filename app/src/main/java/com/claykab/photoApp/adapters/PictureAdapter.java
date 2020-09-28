@@ -95,7 +95,7 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.PictureV
 
             if(navigationAction.equals("homeAction")) {
                 //navigate to view picture details from home screen
-//                Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_imageDetailsFragment, bundle);
+
                 HomeFragmentDirections.ActionNavigationHomeToImageDetailsFragment action
                         = HomeFragmentDirections.actionNavigationHomeToImageDetailsFragment();
                 action.setPictureId(pictureId);
@@ -106,10 +106,10 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.PictureV
                 actionCategoryView.setPictureId(pictureId);
                 Navigation.findNavController(v).navigate(actionCategoryView);
                 //navigate to view picture details from category screen
-//               Navigation.findNavController(v).navigate(R.id.action_categoryViewFragment_to_imageDetailsFragment, bundle);
+
             }else if(navigationAction.equals("searchAction")){
                 //navigate  to view picture details from search screen
-//                Navigation.findNavController(v).navigate(R.id.action_navigation_search_to_imageDetailsFragment, bundle);
+
                 SearchImageFragmentDirections.ActionNavigationSearchToImageDetailsFragment actionSearch=
                         SearchImageFragmentDirections.actionNavigationSearchToImageDetailsFragment();
                 actionSearch.setPictureId(pictureId);

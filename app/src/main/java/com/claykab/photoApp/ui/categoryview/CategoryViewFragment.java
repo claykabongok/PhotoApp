@@ -70,9 +70,13 @@ public class CategoryViewFragment extends Fragment {
 
         String category="";
 
-//
+
         try {
-            category=getArguments().getString("category");
+
+
+            CategoryViewFragmentArgs categoryViewFragmentArgs= CategoryViewFragmentArgs.fromBundle(getArguments());
+            category=categoryViewFragmentArgs.getCategory();
+
             getActivity().setTitle(category);
 
         } catch (Exception e) {

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.claykab.photoApp.R;
 import com.claykab.photoApp.model.CategoryType;
+import com.claykab.photoApp.ui.category.CategoryFragmentDirections;
 
 import java.util.List;
 
@@ -89,13 +90,25 @@ public class CategoryTypeAdapter extends RecyclerView.Adapter<CategoryTypeAdapte
          */
         @Override
         public void onClick(View v) {
-
+            /**
+             *        HomeFragmentDirections.ActionNavigationHomeToImageDetailsFragment action
+             *                         = HomeFragmentDirections.actionNavigationHomeToImageDetailsFragment();
+             *                 action.setPictureId(pictureId);
+             *                 Navigation.findNavController(v).navigate(action);
+             */
             CategoryType categoryType=categoryTypeList.get(getAdapterPosition());
-            Bundle bundle= new Bundle();
             String category=categoryType.getCategory();
-            bundle.putString("category",category);
-           Navigation.findNavController(v).navigate(R.id.action_navigation_category_to_categoryViewFragment,bundle);
+            CategoryFragmentDirections.ActionNavigationCategoryToCategoryViewFragment action=
+                    CategoryFragmentDirections.actionNavigationCategoryToCategoryViewFragment();
+            action.setCategory(category);
+            Navigation.findNavController(v).navigate(action);
 
+
+//            Bundle bundle= new Bundle();
+//            String category=categoryType.getCategory();
+//            bundle.putString("category",category);
+//           Navigation.findNavController(v).navigate(R.id.action_navigation_category_to_categoryViewFragment,bundle);
+//
 
 
 
