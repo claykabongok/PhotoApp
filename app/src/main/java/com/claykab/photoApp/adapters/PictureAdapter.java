@@ -16,6 +16,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.claykab.photoApp.R;
 import com.claykab.photoApp.model.hits;
+import com.claykab.photoApp.ui.category.CategoryFragmentDirections;
+import com.claykab.photoApp.ui.categoryview.CategoryViewFragmentDirections;
+import com.claykab.photoApp.ui.home.HomeFragmentDirections;
+import com.claykab.photoApp.ui.searchimage.SearchImageFragmentDirections;
+
 
 import java.util.List;
 
@@ -84,15 +89,31 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.PictureV
             long pictureId = hits.getId();
             Bundle bundle = new Bundle();
             bundle.putLong("pictureId", pictureId);
+
+
+
+
             if(navigationAction.equals("homeAction")) {
                 //navigate to view picture details from home screen
-                Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_imageDetailsFragment, bundle);
+//                Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_imageDetailsFragment, bundle);
+                HomeFragmentDirections.ActionNavigationHomeToImageDetailsFragment action
+                        = HomeFragmentDirections.actionNavigationHomeToImageDetailsFragment();
+                action.setPictureId(pictureId);
+                Navigation.findNavController(v).navigate(action);
             }else if(navigationAction.equals("categoryViewAction")) {
+                CategoryViewFragmentDirections.ActionCategoryViewFragmentToImageDetailsFragment actionCategoryView
+                        = CategoryViewFragmentDirections.actionCategoryViewFragmentToImageDetailsFragment();
+                actionCategoryView.setPictureId(pictureId);
+                Navigation.findNavController(v).navigate(actionCategoryView);
                 //navigate to view picture details from category screen
-               Navigation.findNavController(v).navigate(R.id.action_categoryViewFragment_to_imageDetailsFragment, bundle);
+//               Navigation.findNavController(v).navigate(R.id.action_categoryViewFragment_to_imageDetailsFragment, bundle);
             }else if(navigationAction.equals("searchAction")){
                 //navigate  to view picture details from search screen
-                Navigation.findNavController(v).navigate(R.id.action_navigation_search_to_imageDetailsFragment, bundle);
+//                Navigation.findNavController(v).navigate(R.id.action_navigation_search_to_imageDetailsFragment, bundle);
+                SearchImageFragmentDirections.ActionNavigationSearchToImageDetailsFragment actionSearch=
+                        SearchImageFragmentDirections.actionNavigationSearchToImageDetailsFragment();
+                actionSearch.setPictureId(pictureId);
+                Navigation.findNavController(v).navigate(actionSearch);
 
             }
 

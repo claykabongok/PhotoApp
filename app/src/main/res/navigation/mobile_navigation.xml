@@ -39,9 +39,6 @@
         android:name="com.claykab.photoApp.ui.imageDetails.ImageDetailsFragment"
         android:label="Image details"
         tools:layout="@layout/fragment_image_details" >
-        <action
-            android:id="@+id/action_imageDetailsFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
         <argument
             android:name="pictureId"
             app:argType="long"
@@ -52,12 +49,12 @@
         android:name="com.claykab.photoApp.ui.categoryview.CategoryViewFragment"
         android:label="Category view"
         tools:layout="@layout/fragment_category_view" >
-        <action
-            android:id="@+id/action_categoryViewFragment_to_imageDetailsFragment"
-            app:destination="@id/imageDetailsFragment" />
         <argument
             android:name="category"
             app:argType="string"
             android:defaultValue="fashion" />
+        <action
+            android:id="@+id/action_categoryViewFragment_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment" />
     </fragment>
 </navigation>

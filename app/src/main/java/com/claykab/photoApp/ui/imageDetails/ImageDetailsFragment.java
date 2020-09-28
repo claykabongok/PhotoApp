@@ -127,7 +127,9 @@ public class ImageDetailsFragment extends Fragment {
        String key= API_KEY.API_KEY;
 //
         try {
-            pictureId=getArguments().getLong("pictureId");
+            ImageDetailsFragmentArgs imageDetailsFragmentArgs= ImageDetailsFragmentArgs.fromBundle(getArguments());
+            pictureId=imageDetailsFragmentArgs.getPictureId();
+
 
         } catch (Exception e) {
             e.printStackTrace();
