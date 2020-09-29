@@ -53,4 +53,9 @@
 <img src="https://github.com/claykabongok/PhotoApp/blob/master/Readme/image_details_screen_doanload_inprogress.jpg?raw=true" width=400 alt="Demo screen">
 
 
+ Licensed under the [MIT License](LICENSE)
+
+
+
+
 
