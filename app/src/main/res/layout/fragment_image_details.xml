@@ -21,13 +21,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="by:"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/tv_image_author_name_value"
             app:layout_constraintStart_toEndOf="@+id/iv_image_author"
-            app:layout_constraintTop_toBottomOf="@+id/tv_download_picture" />
+            app:layout_constraintTop_toBottomOf="@+id/divider_image_download" />
 
         <ImageView
             android:id="@+id/iv_selected_picture"
@@ -174,21 +174,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_download_icon" />
 
-        <TextView
-            android:id="@+id/tv_image_tags"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:text="Tags: "
-            android:textAppearance="@android:style/TextAppearance.Material"
-            app:layout_constraintEnd_toStartOf="@+id/tv_image_tags_value"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_download_value" />
-
-<!--        <de.hdodenhof.circleimageview.CircleImageView-->
+        <!--        <de.hdodenhof.circleimageview.CircleImageView-->
 <!--            xmlns:app="http://schemas.android.com/apk/res-auto"-->
 <!--            android:id="@+id/profile_image"-->
 <!--            android:layout_width="96dp"-->
@@ -198,18 +184,32 @@
 <!--            app:civ_border_color="#FF000000"/>-->
 
 
+        <TextView
+            android:id="@+id/tv_image_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Tags: "
+            android:textAppearance="@android:style/TextAppearance.Material"
+            app:layout_constraintEnd_toStartOf="@+id/tv_image_tags_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_image_data" />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_image_author"
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             app:civ_border_color="#DDDDDD"
             app:civ_border_width="2dp"
             app:layout_constraintEnd_toStartOf="@+id/tv_image_author_name_label"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_download_picture"
+            app:layout_constraintTop_toBottomOf="@+id/divider_image_download"
             tools:src="@tools:sample/avatars" />
 
         <TextView
@@ -217,14 +217,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="16dp"
-
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:textAppearance="@android:style/TextAppearance.Material.Body2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/tv_image_tags"
-            app:layout_constraintTop_toBottomOf="@+id/tv_views_value"
+            app:layout_constraintTop_toBottomOf="@+id/divider_image_data"
             tools:text="Tags value" />
 
         <TextView
@@ -232,13 +231,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:textAppearance="@android:style/TextAppearance.Holo.Medium"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.272"
+            app:layout_constraintHorizontal_bias="0.373"
             app:layout_constraintStart_toEndOf="@+id/iv_image_author"
-            app:layout_constraintTop_toBottomOf="@+id/tv_download_picture"
+            app:layout_constraintTop_toBottomOf="@+id/divider_image_download"
             tools:text="James" />
 
         <TextView
@@ -246,26 +245,64 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="Download picture"
             app:layout_constraintEnd_toStartOf="@+id/ib_download_picture"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_image_tags" />
+            app:layout_constraintTop_toBottomOf="@+id/divider_image_tags" />
 
         <ImageButton
             android:id="@+id/ib_download_picture"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_cloud_download_theme_color_24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.453"
             app:layout_constraintStart_toEndOf="@+id/tv_download_picture"
+            app:layout_constraintTop_toBottomOf="@+id/divider_image_tags" />
+
+        <View
+            android:id="@+id/divider_image_data"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/tv_image_tags"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_comment_value" />
+
+        <View
+            android:id="@+id/divider_image_tags"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/ib_download_picture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_image_tags_value" />
+
+        <View
+            android:id="@+id/divider_image_download"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/iv_image_author"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ib_download_picture" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
