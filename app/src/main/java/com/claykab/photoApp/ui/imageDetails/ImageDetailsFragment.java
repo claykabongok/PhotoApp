@@ -5,6 +5,7 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ import com.claykab.photoApp.databinding.FragmentImageDetailsBinding;
 import com.claykab.photoApp.utils.API_KEY;
 import com.claykab.photoApp.utils.NetworkState;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.text.NumberFormat;
 
 
 public class ImageDetailsFragment extends Fragment {
@@ -141,13 +144,24 @@ public class ImageDetailsFragment extends Fragment {
                  if(!pictureDetailsResponse.getHitsList().isEmpty()){
                      Glide.with(getContext()).load(pictureDetailsResponse.getHitsList().get(0).getLargeImageURL())
                             .placeholder(R.drawable.ic_image_black_24dp).into(binding.ivSelectedPicture);
-                     binding.tvCommentValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getComments()));
-                     binding.tvFavoriteValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getFavorites()));
-                     binding.tvLikesValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getLikes()));
-                     binding.tvViewsValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getViews()));
-                     binding.tvDownloadValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getDownloads()));
-                     binding.tvImageTagsValue.setText(pictureDetailsResponse.getHitsList().get(0).getTags());
 
+                     long value = pictureDetailsResponse.getHitsList().get(0).getComments();
+                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                         binding.tvCommentValue.setText(NumberFormat.getInstance().format(pictureDetailsResponse.getHitsList().get(0).getComments()));
+                         binding.tvFavoriteValue.setText(NumberFormat.getInstance().format(pictureDetailsResponse.getHitsList().get(0).getFavorites()));
+                         binding.tvLikesValue.setText(NumberFormat.getInstance().format(pictureDetailsResponse.getHitsList().get(0).getLikes()));
+                         binding.tvViewsValue.setText(NumberFormat.getInstance().format(pictureDetailsResponse.getHitsList().get(0).getViews()));
+                         binding.tvDownloadValue.setText(NumberFormat.getInstance().format(pictureDetailsResponse.getHitsList().get(0).getDownloads()));
+                     }else{
+
+                         binding.tvCommentValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getComments()));
+                         binding.tvFavoriteValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getFavorites()));
+                         binding.tvLikesValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getLikes()));
+                         binding.tvViewsValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getViews()));
+                         binding.tvDownloadValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getDownloads()));
+
+                     }
+                     binding.tvImageTagsValue.setText(pictureDetailsResponse.getHitsList().get(0).getTags());
                      Glide.with(getContext()).load(pictureDetailsResponse.getHitsList().get(0).getUserImageURL())
                              .placeholder(R.drawable.ic_person_theme_color_24dp).into(binding.ivImageAuthor);
                      binding.tvImageAuthorNameValue.setText(String.valueOf(pictureDetailsResponse.getHitsList().get(0).getUser()));
@@ -236,5 +250,6 @@ public class ImageDetailsFragment extends Fragment {
         }
 
     }
+
 
 }
